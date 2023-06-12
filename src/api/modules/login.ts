@@ -3,7 +3,6 @@ import DynamicRouter from "@/assets/json/dynamicRouter.json";
 import AuthButtons from "@/assets/json/authButtons.json";
 // import qs from "qs";
 import axios from "axios";
-import { WebService } from "../config/servicePort";
 import http from "@/api";
 
 /**
@@ -12,7 +11,9 @@ import http from "@/api";
 // * 用户登录
 export const loginApi = (params: Login.ReqLoginForm) => {
 	// return http.post<Login.ResLogin>(axios.defaults.baseURL + `/login`, params, { headers: { noLoading: true } }); // 正常 post json 请求  ==>  application/json
-	return http.post<Login.ResLogin>(axios.defaults.baseURL + WebService + "/login", params, { headers: { noLoading: true } });
+	return http.post<Login.ResLogin>(axios.defaults.baseURL + "/login", params, {
+		headers: { "Content-Type": "application/x-www-form-urlencoded", noLoading: true }
+	});
 };
 
 // * 获取按钮权限
@@ -32,5 +33,5 @@ export const getAuthMenuListApi = () => {
 // * 用户退出登录
 export const logoutApi = () => {
 	// return http.post(axios.defaults.baseURL + `/logout`);
-	return http.post(axios.defaults.baseURL + WebService + "/logout");
+	//return http.post(axios.defaults.baseURL + WebService + "/logout");
 };

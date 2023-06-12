@@ -35,8 +35,7 @@ import errorHandler from "@/utils/errorHandler";
 
 import axios from "axios";
 
-// axios.defaults.baseURL = "http://127.0.0.1";
-axios.defaults.baseURL = "http://10.22.23.64";
+axios.defaults.baseURL = "http://124.223.196.177:8086/v1/api/";
 
 // axios.defaults.timeout = 60000;
 

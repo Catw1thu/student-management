@@ -5,7 +5,7 @@
 			<div class="menu" :style="{ width: isCollapse ? '65px' : '210px' }">
 				<div class="logo flx-center">
 					<img class="login-icon" style="width: 40px; height: 40px" src="@/assets/images/video-camera.png" alt="logo" />
-					<span v-show="!isCollapse">智慧校园安全保障</span>
+					<span v-show="!isCollapse">设备管理系统</span>
 				</div>
 				<el-scrollbar>
 					<el-menu

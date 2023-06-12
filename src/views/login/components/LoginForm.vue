@@ -16,7 +16,7 @@
 		</el-form-item>
 	</el-form>
 	<div class="login-btn">
-		<el-button :icon="CircleClose" round @click="resetForm(loginFormRef)" size="large">重置</el-button>
+		<el-button round @click="register()" size="large">注册</el-button>
 		<el-button :icon="UserFilled" round @click="login(loginFormRef)" size="large" type="primary" :loading="loading">
 			登录
 		</el-button>
@@ -36,9 +36,6 @@ import { HOME_URL } from "@/config/config";
 import { initDynamicRouter } from "@/routers/modules/dynamicRouter";
 import { CircleClose, UserFilled } from "@element-plus/icons-vue";
 import type { ElForm } from "element-plus";
-import md5 from "js-md5";
-import { socketChat, socketTrain } from "@/socket/socket";
-import { AesManager } from "@/utils/AesManager";
 
 const router = useRouter();
 const tabsStore = TabsStore();
@@ -62,10 +59,10 @@ const login = (formEl: FormInstance | undefined) => {
 		try {
 			// 1.执行登录接口
 
-			const { data } = await loginApi({ ...loginForm, password: AesManager.encrypt(loginForm.password) });
-			globalStore.setToken(data.access_token);
+			const { token } = await loginApi({ ...loginForm, password: loginForm.password });
+			globalStore.setToken(token);
 
-			// 2.添加动态路由
+			//2.添加动态路由
 			await initDynamicRouter();
 
 			// 3.清除上个账号的 tab 信息
@@ -75,21 +72,9 @@ const login = (formEl: FormInstance | undefined) => {
 			router.push(HOME_URL);
 			ElNotification({
 				title: getTimeState(),
-				message: "欢迎登录 江苏泰坦科技",
+				message: "欢迎登录设备管理系统",
 				type: "success",
 				duration: 3000
-			});
-
-			//连接socket
-			socketChat.connect();
-			socketChat.on("connect", () => {
-				socketChat.open();
-				console.log("socketChat connected.");
-			});
-			socketTrain.connect();
-			socketTrain.on("connect", () => {
-				socketTrain.open();
-				console.log("socketTrain connected.");
 			});
 		} finally {
 			loading.value = false;
@@ -97,10 +82,9 @@ const login = (formEl: FormInstance | undefined) => {
 	});
 };
 
-// resetForm
-const resetForm = (formEl: FormInstance | undefined) => {
-	if (!formEl) return;
-	formEl.resetFields();
+// register
+const register = () => {
+	router.push();
 };
 
 onMounted(() => {

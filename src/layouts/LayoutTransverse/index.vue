@@ -4,7 +4,7 @@
 		<el-header>
 			<div class="logo flx-center">
 				<img class="login-icon" style="width: 40px; height: 40px" src="@/assets/images/video-camera.png" alt="logo" />
-				<span>智慧校园安全保障</span>
+				<span>设备管理系统</span>
 			</div>
 			<el-menu
 				mode="horizontal"
