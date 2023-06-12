@@ -197,79 +197,79 @@ onMounted(async () => {
 	search();
 });
 
-//树形控件的过滤功能
-interface Tree {
-	label: string;
-	children?: Tree[];
-	id: number;
-}
+// //树形控件的过滤功能
+// interface Tree {
+// 	label: string;
+// 	children?: Tree[];
+// 	id: number;
+// }
 
-const filterText_camera = ref<string>("");
-const filterText_type = ref<string>("");
-const filterText_status = ref<string>("");
-const treeRef_camera = ref<InstanceType<typeof ElTree>>();
-const treeRef_type = ref<InstanceType<typeof ElTree>>();
-const treeRef_status = ref<InstanceType<typeof ElTree>>();
+// const filterText_camera = ref<string>("");
+// const filterText_type = ref<string>("");
+// const filterText_status = ref<string>("");
+// const treeRef_camera = ref<InstanceType<typeof ElTree>>();
+// const treeRef_type = ref<InstanceType<typeof ElTree>>();
+// const treeRef_status = ref<InstanceType<typeof ElTree>>();
 
-const defaultProps = {
-	children: "children",
-	label: "label"
-};
+// const defaultProps = {
+// 	children: "children",
+// 	label: "label"
+// };
 
-watch(filterText_camera, val => {
-	treeRef_camera.value!.filter(val);
-});
+// watch(filterText_camera, val => {
+// 	treeRef_camera.value!.filter(val);
+// });
 
-watch(filterText_type, val => {
-	treeRef_type.value!.filter(val);
-});
+// watch(filterText_type, val => {
+// 	treeRef_type.value!.filter(val);
+// });
 
-watch(filterText_status, val => {
-	treeRef_type.value!.filter(val);
-});
+// watch(filterText_status, val => {
+// 	treeRef_type.value!.filter(val);
+// });
 
-// 过滤
-const filterNode = (value: string, _data: { [key: string]: any }, node: any) => {
-	if (!value) return true;
-	let parentNode = node.parent,
-		labels = [node.label],
-		level = 1;
-	while (level < node.level) {
-		labels = [...labels, parentNode.label];
-		parentNode = parentNode.parent;
-		level++;
-	}
-	return labels.some(label => label.indexOf(value) !== -1);
-};
+// // 过滤
+// const filterNode = (value: string, _data: { [key: string]: any }, node: any) => {
+// 	if (!value) return true;
+// 	let parentNode = node.parent,
+// 		labels = [node.label],
+// 		level = 1;
+// 	while (level < node.level) {
+// 		labels = [...labels, parentNode.label];
+// 		parentNode = parentNode.parent;
+// 		level++;
+// 	}
+// 	return labels.some(label => label.indexOf(value) !== -1);
+// };
 
-//定义树形控件的内容，需要动态获取
-const data_camera = ref([
-	{
-		id: -1,
-		label: "所有摄像头/区域",
-		children: [{ id: -1, label: "全部", camera_id: -1, camera_name: "", camera_location: "" }]
-	}
-]);
+// //定义树形控件的内容，需要动态获取
+// const data_camera = ref([
+// 	{
+// 		id: -1,
+// 		label: "所有摄像头/区域",
+// 		children: [{ id: -1, label: "全部", camera_id: -1, camera_name: "", camera_location: "" }]
+// 	}
+// ]);
 
-const data_type = ref([
-	{
-		id: -1,
-		label: "所有类型",
-		children: [{ id: -1, label: "全部", warning_event: "", warning_type: -1 }]
-	}
-]);
+// const data_type = ref([
+// 	{
+// 		id: -1,
+// 		label: "所有类型",
+// 		children: [{ id: -1, label: "全部", warning_event: "", warning_type: -1 }]
+// 	}
+// ]);
 
-const data_status: Tree[] = [
-	{
-		id: -1,
-		label: "所有状态",
-		children: [
-			{ id: -1, label: "全部" },
-			{ id: 1, label: "已处理" },
-			{ id: 0, label: "未处理" }
-		]
-	}
-];
+// const data_status: Tree[] = [
+// 	{
+// 		id: -1,
+// 		label: "所有状态",
+// 		children: [
+// 			{ id: -1, label: "全部" },
+// 			{ id: 1, label: "已处理" },
+// 			{ id: 0, label: "未处理" }
+// 		]
+// 	}
+// ];
 
 //当前页面所有信息
 let camera_id = ref(-1);
@@ -656,7 +656,7 @@ const dealSubmit = async (formEl: FormInstance | undefined) => {
 					if (response.data.result === "succ") {
 						dialogDealVisible.value = false;
 						search();
-						getMessageCount();
+						//getMessageCount();
 						ElNotification({
 							title: "",
 							message: "提交成功。",

@@ -32,7 +32,7 @@ import { loginApi } from "@/api/modules/login";
 import { GlobalStore } from "@/stores";
 import { TabsStore } from "@/stores/modules/tabs";
 import { getTimeState } from "@/utils/util";
-import { HOME_URL } from "@/config/config";
+import { HOME_URL, REGISTER_URL } from "@/config/config";
 import { initDynamicRouter } from "@/routers/modules/dynamicRouter";
 import { CircleClose, UserFilled } from "@element-plus/icons-vue";
 import type { ElForm } from "element-plus";
@@ -59,7 +59,7 @@ const login = (formEl: FormInstance | undefined) => {
 		try {
 			// 1.执行登录接口
 
-			const { token } = await loginApi({ ...loginForm, password: loginForm.password });
+			const { token } = await loginApi({ ...loginForm });
 			globalStore.setToken(token);
 
 			//2.添加动态路由
@@ -84,7 +84,7 @@ const login = (formEl: FormInstance | undefined) => {
 
 // register
 const register = () => {
-	router.push();
+	router.push(REGISTER_URL);
 };
 
 onMounted(() => {

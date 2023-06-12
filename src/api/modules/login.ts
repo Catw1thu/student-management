@@ -11,7 +11,14 @@ import http from "@/api";
 // * 用户登录
 export const loginApi = (params: Login.ReqLoginForm) => {
 	// return http.post<Login.ResLogin>(axios.defaults.baseURL + `/login`, params, { headers: { noLoading: true } }); // 正常 post json 请求  ==>  application/json
-	return http.post<Login.ResLogin>(axios.defaults.baseURL + "/login", params, {
+	return http.post<Login.ResLogin>(axios.defaults.baseURL + "/api/login", params, {
+		headers: { "Content-Type": "application/x-www-form-urlencoded", noLoading: true }
+	});
+};
+
+export const registerApi = (params: Login.ReqRegisterForm) => {
+	// return http.post<Login.ResLogin>(axios.defaults.baseURL + `/login`, params, { headers: { noLoading: true } }); // 正常 post json 请求  ==>  application/json
+	return http.post<Login.ResRegister>(axios.defaults.baseURL + "/api/register", params, {
 		headers: { "Content-Type": "application/x-www-form-urlencoded", noLoading: true }
 	});
 };

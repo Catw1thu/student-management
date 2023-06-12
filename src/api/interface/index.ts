@@ -6,7 +6,7 @@ export interface Result {
 
 // * 请求响应参数(包含data)
 export interface ResultData<T = any> extends Result {
-	data: T;
+	token: T;
 }
 
 // * 分页响应参数
@@ -36,8 +36,19 @@ export namespace Login {
 		username: string;
 		password: string;
 	}
+	export interface ReqRegisterForm {
+		username: string;
+		password: string;
+		email: string;
+		code: string;
+	}
 	export interface ResLogin {
-		access_token: string;
+		token: string;
+		status: string;
+	}
+	export interface ResRegister {
+		status: string;
+		msg: string;
 	}
 	export interface ResAuthButtons {
 		[key: string]: string[];
