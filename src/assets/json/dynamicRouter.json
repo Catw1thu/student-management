@@ -30,9 +30,9 @@
 			}
 		},
 		{
-			"path": "/purchase_man",
-			"name": "purchase_man",
-			"component": "/purchase_man/index",
+			"path": "/purchase",
+			"name": "purchase",
+			"component": "/purchase/index",
 			"meta": {
 				"icon": "Menu",
 				"title": "购买管理",

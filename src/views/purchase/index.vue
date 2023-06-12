@@ -78,10 +78,10 @@
 	</div>
 </template>
 
-<scrip setup lang="ts" name="purchase_man">
+<scrip setup lang="ts" name="purchase">
 import { reactive, ref } from "vue";
 import axios from "axios";
-let tableData = ref([]);
+let tableData = reactive([]);
 let updateKey = ref(0);
 
 const getDevieces = () => {
