@@ -2,7 +2,7 @@
 	<div>
 		<div class="main-box">
 			<div class="table-box">
-				<!-- #Header -->
+				<!--#Header -->
 				<!-- <div class="card table-search">
 					<el-form :inline="true" ref="formRef">
 						<el-form-item label="内容">
@@ -52,7 +52,7 @@
 						<el-table-column prop="operation" label="操作" width="180" fixed="right">
 							<template #default="scope">
 								<el-button type="primary" link @click="intoSrorage(scope.row)">入库</el-button>
-								<el-button type="primary" link @click="deleteDevice(scope.row)">删除</el-button>
+								<el-button type="info" link @click="deleteDevice(scope.row)">删除</el-button>
 							</template>
 						</el-table-column>
 						<!-- 表格无数据情况 -->
@@ -207,13 +207,22 @@ const deleteDevice = (row: any) => {
 		}
 	})
 		.then(res => {
-			ElNotification({
-				title: getTimeState(),
-				message: "删除成功",
-				type: "success",
-				duration: 3000
-			});
-			getDeviece();
+			if (res.data.status === true) {
+				getDeviece();
+				ElNotification({
+					title: getTimeState(),
+					message: "删除成功",
+					type: "success",
+					duration: 3000
+				});
+			} else {
+				ElNotification({
+					title: getTimeState(),
+					message: "删除失败，请查看原因",
+					type: "error",
+					duration: 3000
+				});
+			}
 		})
 		.catch(err => {
 			console.log(err.message);

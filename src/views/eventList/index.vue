@@ -1,6 +1,6 @@
 <template>
 	<div class="main-box">
-		<div class="card filter">
+		<!-- <div class="card filter">
 			<h4 class="title sle">过滤器</h4>
 			<el-scrollbar :style="{ height: `calc(100% - 95px)` }">
 				<el-input v-model="filterText_status" placeholder="状态关键字过滤" clearable />
@@ -40,10 +40,10 @@
 					@node-click="handleNodeClick_type"
 				/>
 			</el-scrollbar>
-		</div>
+		</div> -->
 		<div class="table-box">
 			<!-- #Header -->
-			<div class="card table-search">
+			<!-- <div class="card table-search">
 				<el-form :inline="true" ref="formRef">
 					<el-form-item label="内容">
 						<el-input v-model="content" />
@@ -69,7 +69,7 @@
 						</div>
 					</el-form-item>
 				</el-form>
-			</div>
+			</div> -->
 			<!-- 表格主体 -->
 			<div class="card table">
 				<el-table
@@ -108,15 +108,15 @@
 					</template>
 				</el-table>
 				<!-- 详细信息Dialog -->
-				<el-dialog v-model="dialogInfoVisible" title="详细信息" width="60%" v-if="dialogInfoVisible">
-					<!-- 视频 -->
-					<div class="a">
-						<video class="vd" autoplay :src="video_url" ref="video_con" controls width="800">您的浏览器无法播放该视频！</video>
-						<!-- <div class="c">
+				<!-- <el-dialog v-model="dialogInfoVisible" title="详细信息" width="60%" v-if="dialogInfoVisible"> -->
+				<!-- 视频 -->
+				<!-- <div class="a">
+						<video class="vd" autoplay :src="video_url" ref="video_con" controls width="800">您的浏览器无法播放该视频！</video> -->
+				<!-- <div class="c">
 							<el-button type="primary" @click="getVideoUrl">播放</el-button>
 							<el-button type="primary" @click="rePlay">重新播放</el-button>
 						</div> -->
-					</div>
+				<!-- </div>
 					<el-descriptions title="报警信息" size="large" border>
 						<el-descriptions-item label="事件id">{{ selected_id }}</el-descriptions-item>
 						<el-descriptions-item label="摄像头">{{ selected_camera_id }}</el-descriptions-item>
@@ -132,9 +132,9 @@
 							<el-button type="primary" @click="dialogInfoVisible = false"> 确认</el-button>
 						</span>
 					</template></el-dialog
-				>
+				> -->
 				<!-- 处置信息Dialog -->
-				<el-dialog v-model="dialogDealVisible" title="处理" width="60%" v-if="dialogDealVisible">
+				<!-- <el-dialog v-model="dialogDealVisible" title="处理" width="60%" v-if="dialogDealVisible">
 					<el-descriptions title="报警信息" size="large" border>
 						<el-descriptions-item label="事件id">{{ selected_id }}</el-descriptions-item>
 						<el-descriptions-item label="摄像头">{{ selected_camera_id }}</el-descriptions-item>
@@ -156,16 +156,16 @@
 							<el-button type="primary" @click="dealSubmit(ruleFormRef)"> 提交 </el-button>
 						</span>
 					</template></el-dialog
-				>
+				> -->
 				<!-- 分页组件 -->
-				<el-pagination
+				<!-- <el-pagination
 					v-model:current-page="pageNum"
 					v-model:page-size="pageSize"
 					:page-sizes="[10, 25, 50, 100]"
 					:background="true"
 					layout="total, sizes, prev, pager, next, jumper"
 					:total="totalInfoNum"
-				></el-pagination>
+				></el-pagination> -->
 			</div>
 		</div>
 	</div>

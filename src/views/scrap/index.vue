@@ -18,11 +18,11 @@
 						<el-table-column prop="device_id" label="设备号" width="200" />
 						<el-table-column prop="applicant" label="批准人" width="150" />
 						<el-table-column prop="date" label="报废日期" width="180" sortable :sort-orders="['descending', 'ascending']" />
-						<!-- <el-table-column prop="operation" label="操作" width="150" fixed="right">
-						<template #default="scope">
-							<el-button type="primary" link @click="intoSrorage(scope.row)">入库</el-button>
-						</template>
-					</el-table-column> -->
+						<el-table-column prop="operation" label="操作" width="150" fixed="right">
+							<template #default="scope">
+								<el-button type="info" link @click="deleteScrap(scope.row)">删除</el-button>
+							</template>
+						</el-table-column>
 						<!-- 表格无数据情况 -->
 						<template #empty>
 							<div class="table-empty">
@@ -41,6 +41,8 @@
 <script setup lang="ts" name="scrap">
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import { ElNotification } from "element-plus";
+import { getTimeState } from "@/utils/util";
 let tableData = ref([]);
 let updateKey = ref(0);
 
@@ -65,6 +67,35 @@ const getScrap = () => {
 				};
 			});
 			updateKey.value += 1;
+		})
+		.catch(err => {
+			console.log(err.message);
+		});
+};
+const deleteScrap = (row: any) => {
+	axios({
+		method: "POST",
+		url: axios.defaults.baseURL + "/equipment/scrap/delete",
+		data: { id: row.id },
+		headers: { "Content-Type": "application/x-www-form-urlencoded" }
+	})
+		.then(res => {
+			if (res.data.status === true) {
+				getScrap();
+				ElNotification({
+					title: getTimeState(),
+					message: "删除成功",
+					type: "success",
+					duration: 3000
+				});
+			} else {
+				ElNotification({
+					title: getTimeState(),
+					message: "删除失败，请查看原因",
+					type: "error",
+					duration: 3000
+				});
+			}
 		})
 		.catch(err => {
 			console.log(err.message);

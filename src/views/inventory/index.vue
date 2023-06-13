@@ -22,6 +22,7 @@
 							<template #default="scope">
 								<el-button type="danger" link @click="broken(scope.row)">损坏</el-button>
 								<el-button type="primary" link @click="sendRepair(scope.row)">送修</el-button>
+								<el-button type="info" link @click="deleteDevice(scope.row)">删除</el-button>
 							</template>
 						</el-table-column>
 						<!-- 表格无数据情况 -->
@@ -286,6 +287,35 @@ const repairDevice = async (formEl: FormInstance | undefined) => {
 		} else {
 		}
 	});
+};
+const deleteDevice = (row: any) => {
+	axios({
+		method: "POST",
+		url: axios.defaults.baseURL + "/equipment/inventory/delete",
+		data: { id: row.id },
+		headers: { "Content-Type": "application/x-www-form-urlencoded" }
+	})
+		.then(res => {
+			if (res.data.status === true) {
+				getInventory();
+				ElNotification({
+					title: getTimeState(),
+					message: "删除成功",
+					type: "success",
+					duration: 3000
+				});
+			} else {
+				ElNotification({
+					title: getTimeState(),
+					message: "删除失败，请查看原因",
+					type: "error",
+					duration: 3000
+				});
+			}
+		})
+		.catch(err => {
+			console.log(err.message);
+		});
 };
 const cellStyle = (row: any, column: any, rowIndex: any, columnIndex: number) => {
 	if (row.columnIndex === 5) {

@@ -30,12 +30,12 @@
 			}
 		},
 		{
-			"path": "/repair",
-			"name": "repair",
-			"component": "/repair/index",
+			"path": "/inventory",
+			"name": "inventory",
+			"component": "/inventory/index",
 			"meta": {
 				"icon": "Menu",
-				"title": "维修管理",
+				"title": "库存管理",
 				"isLink": "",
 				"isHide": false,
 				"isFull": false,
@@ -44,12 +44,12 @@
 			}
 		},
 		{
-			"path": "/inventory",
-			"name": "inventory",
-			"component": "/inventory/index",
+			"path": "/repair",
+			"name": "repair",
+			"component": "/repair/index",
 			"meta": {
 				"icon": "Menu",
-				"title": "库存管理",
+				"title": "维修管理",
 				"isLink": "",
 				"isHide": false,
 				"isFull": false,
