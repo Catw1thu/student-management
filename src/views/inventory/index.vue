@@ -139,10 +139,10 @@ const rulesBroken = reactive<FormRules>({
 	number: [{ required: true, message: "请输入损坏设备数量", trigger: "blur" }]
 });
 const broken = (row: any) => {
-	if (row.status === "损坏") {
+	if (row.status !== "正常") {
 		ElNotification({
 			title: getTimeState(),
-			message: "设备已经损坏",
+			message: "设备状态不是正常",
 			type: "error",
 			duration: 3000
 		});

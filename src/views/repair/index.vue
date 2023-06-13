@@ -226,7 +226,7 @@ const setScrap = async (formEl: FormInstance | undefined) => {
 	});
 };
 const cellStyle = (row: any, column: any, rowIndex: any, columnIndex: number) => {
-	if (row.columnIndex === 7) {
+	if (row.columnIndex === 8) {
 		if (row.row.status === "未完成") {
 			return { color: "red" };
 		} else {

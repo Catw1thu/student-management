@@ -45,29 +45,29 @@ function calculateTimeAgo(date: string) {
 	return { month, day, hour, minute, second };
 }
 
-const startTime = "2023-02-24 12:30:00";
+const startTime = "2023-06-12 08:30:00";
 
 export default {
 	components: {
-		Segment,
+		Segment
 	},
 	data() {
 		return {
 			timer: "",
-			timeAgo: calculateTimeAgo(startTime),
+			timeAgo: calculateTimeAgo(startTime)
 		};
 	},
 	methods: {
 		updateTimeAgo() {
 			this.timeAgo = calculateTimeAgo(startTime);
-		},
+		}
 	},
 	mounted() {
 		this.timer = setInterval(this.updateTimeAgo, 1000);
 	},
 	beforeDestroy() {
 		clearInterval(this.timer);
-	},
+	}
 };
 </script>
 

@@ -45,7 +45,7 @@ function calculateTimeAgo(date: string) {
 	return { month, day, hour, minute, second };
 }
 
-const startTime = "2023-02-24 12:30:00";
+const startTime = "2023-06-12 08:30:00";
 
 export default {
 	components: {
