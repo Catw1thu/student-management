@@ -16,12 +16,12 @@
 			}
 		},
 		{
-			"path": "/eventList",
-			"name": "eventList",
-			"component": "/eventList/index",
+			"path": "/purchase",
+			"name": "purchase",
+			"component": "/purchase/index",
 			"meta": {
 				"icon": "Menu",
-				"title": "事件列表",
+				"title": "购买管理",
 				"isLink": "",
 				"isHide": false,
 				"isFull": false,
@@ -30,12 +30,40 @@
 			}
 		},
 		{
-			"path": "/purchase",
-			"name": "purchase",
-			"component": "/purchase/index",
+			"path": "/repair",
+			"name": "repair",
+			"component": "/repair/index",
 			"meta": {
 				"icon": "Menu",
-				"title": "购买管理",
+				"title": "维修管理",
+				"isLink": "",
+				"isHide": false,
+				"isFull": false,
+				"isAffix": false,
+				"isKeepAlive": true
+			}
+		},
+		{
+			"path": "/inventory",
+			"name": "inventory",
+			"component": "/inventory/index",
+			"meta": {
+				"icon": "Menu",
+				"title": "库存管理",
+				"isLink": "",
+				"isHide": false,
+				"isFull": false,
+				"isAffix": false,
+				"isKeepAlive": true
+			}
+		},
+		{
+			"path": "/scrap",
+			"name": "scrap",
+			"component": "/scrap/index",
+			"meta": {
+				"icon": "Menu",
+				"title": "报废管理",
 				"isLink": "",
 				"isHide": false,
 				"isFull": false,
