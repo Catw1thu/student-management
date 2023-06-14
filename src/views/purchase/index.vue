@@ -136,6 +136,7 @@ let updateKey = ref(0);
 
 onMounted(async () => {
 	getDeviece();
+	ruleForm.date = new Date(2023, 6, 14);
 });
 
 const getDeviece = () => {

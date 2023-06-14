@@ -1,6 +1,6 @@
 <template>
 	<div class="timer-wrapper">
-		<h2 class="timer-title">系统已运行(自2023-02-24 12:30:00)</h2>
+		<h2 class="timer-title">系统已运行(自2023-06-12 08:30:00)</h2>
 		<div class="timer-container">
 			<Segment :number="timeAgo.month" :title="'Months'"></Segment>
 			<Segment :number="timeAgo.day" :title="'Days'"></Segment>

@@ -61,7 +61,7 @@
 						</el-descriptions>
 						<el-form :model="ruleRepairForm" ref="ruleRepairFormRef" size="large" :rules="rulesRepair">
 							<el-form-item label="数量" autosize>
-								<el-input v-model="ruleRepairForm.number" type="text" placeholder="请输入维修费用" />
+								<el-input v-model="ruleRepairForm.number" type="text" placeholder="请输入维修设备数量" />
 							</el-form-item>
 							<el-form-item label="费用" autosize>
 								<el-input v-model="ruleRepairForm.cost" type="text" placeholder="请输入维修费用" />
@@ -102,6 +102,7 @@ let updateKey = ref(0);
 
 onMounted(async () => {
 	getInventory();
+	ruleRepairForm.date = new Date(2023, 6, 14);
 });
 
 const getInventory = () => {

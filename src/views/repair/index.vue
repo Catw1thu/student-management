@@ -86,6 +86,7 @@ let updateKey = ref(0);
 
 onMounted(async () => {
 	getRepair();
+	ruleForm.scrap_time = new Date(2023, 6, 14);
 });
 const getRepair = () => {
 	axios({
